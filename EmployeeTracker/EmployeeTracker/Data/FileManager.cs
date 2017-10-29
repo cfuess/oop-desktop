@@ -21,6 +21,7 @@ namespace EmployeeTracker.Data
             _serializer = new XmlSerializer(typeof(DataStore));
         }
 
+        // this method returns a Datastore object with whatever was saved last time.
         public DataStore Load()
         {
             // declare and instantiate the store object, has scope only in this method

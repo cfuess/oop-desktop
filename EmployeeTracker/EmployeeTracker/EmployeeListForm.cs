@@ -15,17 +15,12 @@ namespace EmployeeTracker
     {
         //declare field variables
         private DataStore _dataStore;
-        private FileManager _fileManager;
 
         public EmployeeListForm()
         {
             InitializeComponent();
-            
-            // instantiate object
-            _fileManager = new FileManager();
 
-            // get the saved data from the file system
-            _dataStore = _fileManager.Load();
+            _dataStore = new DataStore();
         }
 
         private void btnAddEmployee_Click(object sender, EventArgs e)
@@ -35,6 +30,16 @@ namespace EmployeeTracker
             employeeForm.Show();
         }
 
+        private void btnViewEmployee_Click(object sender, EventArgs e)
+        {
+            // clear the list
+            lstEmployees.Items.Clear();
 
+            // put all the employees in the list
+            foreach (var employee in _dataStore.Employees)
+            {
+                lstEmployees.Items.Add($"{employee.FirstName} {employee.LastName}");
+            }
+        }
     }
 }
