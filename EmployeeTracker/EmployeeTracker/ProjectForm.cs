@@ -16,17 +16,12 @@ namespace EmployeeTracker
         private readonly List<Project> _projects;
         private Project _project = new Project();
 
-        delegate void SetText(string message);
-        event SetText ShowResults;
-        public event EventHandler SaveComplete;
 
         public ProjectForm(List<Project> projects)
         {
             InitializeComponent();
             _projects = projects;
             txtId.Text = GetNextId().ToString();
-            ShowResults += results_ShowResults;
-            ShowResults("");
         }
 
         private void btnSave_Click(object sender, EventArgs e)
@@ -37,8 +32,6 @@ namespace EmployeeTracker
             _project.StartDate = DateTime.Parse(dtStartDate.Text);
             _project.EndDate = DateTime.Parse(dtEndDate.Text);
             _projects.Add(_project);
-            ShowResults("Saved");
-            SaveComplete(this, EventArgs.Empty);
         }
 
         private void loadTechnologies()
@@ -56,21 +49,6 @@ namespace EmployeeTracker
         private void results_ShowResults(string message)
         {
             lblResult.Text = message;
-        }
-
-        private void txtLast_TextChanged(object sender, EventArgs e)
-        {
-            ShowResults("");
-        }
-
-        private void txtFirst_TextChanged(object sender, EventArgs e)
-        {
-            ShowResults("");
-        }
-
-        private void dtHireDate_ValueChanged(object sender, EventArgs e)
-        {
-            ShowResults("");
         }
 
         private void lstTechnologies_Click(object sender, EventArgs e)
