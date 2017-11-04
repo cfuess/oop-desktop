@@ -36,12 +36,14 @@
             this.dtHireDate = new System.Windows.Forms.DateTimePicker();
             this.btnSave = new System.Windows.Forms.Button();
             this.lblResult = new System.Windows.Forms.Label();
+            this.label5 = new System.Windows.Forms.Label();
+            this.txtId = new System.Windows.Forms.TextBox();
             this.SuspendLayout();
             // 
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(10, 5);
+            this.label1.Location = new System.Drawing.Point(10, 36);
             this.label1.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(76, 17);
@@ -51,7 +53,7 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(11, 42);
+            this.label2.Location = new System.Drawing.Point(11, 73);
             this.label2.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(76, 17);
@@ -61,7 +63,7 @@
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(20, 75);
+            this.label3.Location = new System.Drawing.Point(20, 106);
             this.label3.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(68, 17);
@@ -70,8 +72,8 @@
             // 
             // txtFirst
             // 
-            this.txtFirst.Location = new System.Drawing.Point(96, 7);
-            this.txtFirst.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.txtFirst.Location = new System.Drawing.Point(96, 38);
+            this.txtFirst.Margin = new System.Windows.Forms.Padding(2);
             this.txtFirst.Name = "txtFirst";
             this.txtFirst.Size = new System.Drawing.Size(136, 22);
             this.txtFirst.TabIndex = 3;
@@ -79,8 +81,8 @@
             // 
             // txtLast
             // 
-            this.txtLast.Location = new System.Drawing.Point(96, 42);
-            this.txtLast.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.txtLast.Location = new System.Drawing.Point(96, 73);
+            this.txtLast.Margin = new System.Windows.Forms.Padding(2);
             this.txtLast.Name = "txtLast";
             this.txtLast.Size = new System.Drawing.Size(131, 22);
             this.txtLast.TabIndex = 4;
@@ -88,8 +90,8 @@
             // 
             // dtHireDate
             // 
-            this.dtHireDate.Location = new System.Drawing.Point(96, 75);
-            this.dtHireDate.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.dtHireDate.Location = new System.Drawing.Point(96, 106);
+            this.dtHireDate.Margin = new System.Windows.Forms.Padding(2);
             this.dtHireDate.Name = "dtHireDate";
             this.dtHireDate.Size = new System.Drawing.Size(241, 22);
             this.dtHireDate.TabIndex = 5;
@@ -97,8 +99,8 @@
             // 
             // btnSave
             // 
-            this.btnSave.Location = new System.Drawing.Point(304, 124);
-            this.btnSave.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnSave.Location = new System.Drawing.Point(304, 145);
+            this.btnSave.Margin = new System.Windows.Forms.Padding(2);
             this.btnSave.Name = "btnSave";
             this.btnSave.Size = new System.Drawing.Size(119, 34);
             this.btnSave.TabIndex = 6;
@@ -115,11 +117,29 @@
             this.lblResult.TabIndex = 7;
             this.lblResult.Text = "label4";
             // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Location = new System.Drawing.Point(46, 12);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(19, 17);
+            this.label5.TabIndex = 21;
+            this.label5.Text = "Id";
+            // 
+            // txtId
+            // 
+            this.txtId.Location = new System.Drawing.Point(96, 9);
+            this.txtId.Name = "txtId";
+            this.txtId.Size = new System.Drawing.Size(59, 22);
+            this.txtId.TabIndex = 22;
+            // 
             // EmployeeForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(428, 164);
+            this.ClientSize = new System.Drawing.Size(428, 187);
+            this.Controls.Add(this.txtId);
+            this.Controls.Add(this.label5);
             this.Controls.Add(this.lblResult);
             this.Controls.Add(this.btnSave);
             this.Controls.Add(this.dtHireDate);
@@ -128,7 +148,7 @@
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
-            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "EmployeeForm";
             this.Text = "Employee";
             this.ResumeLayout(false);
@@ -146,5 +166,7 @@
         private System.Windows.Forms.DateTimePicker dtHireDate;
         private System.Windows.Forms.Button btnSave;
         private System.Windows.Forms.Label lblResult;
+        private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.TextBox txtId;
     }
 }

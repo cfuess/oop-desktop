@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using EmployeeTracker.Data;
+using EmployeeTracker.Models;
 
 namespace EmployeeTracker
 {
@@ -16,6 +17,7 @@ namespace EmployeeTracker
         //declare field variables
         private DataStore _dataStore;
         private FileManager _fileManager;
+        private bool _loading = true;
 
         public EmployeeListForm()
         {
@@ -24,6 +26,7 @@ namespace EmployeeTracker
             _dataStore = _fileManager.Load();
             loadEmployees();
             loadProjects();
+            _loading = false;
         }
 
         private void btnAddEmployee_Click(object sender, EventArgs e)
@@ -36,14 +39,20 @@ namespace EmployeeTracker
 
         private void loadEmployees()
         {
-            // clear the list
-            lstEmployees.Items.Clear();
+            //// clear the list
+            //lstEmployees.Items.Clear();
 
-            // put all the employees in the list
-            foreach (var employee in _dataStore.Employees)
-            {
-                lstEmployees.Items.Add($"{employee.FirstName} {employee.LastName}");
-            }
+            //// put all the employees in the list
+            //foreach (var employee in _dataStore.Employees)
+            //{
+            //    lstEmployees.Items.Add($"{employee.FirstName} {employee.LastName}");
+            //}
+
+            _loading = true;
+            lstEmployees.DataSource = null;
+            lstEmployees.DisplayMember = "FullName";
+            lstEmployees.DataSource = _dataStore.Employees;
+            _loading = false;
         }
 
         private void loadProjects()
@@ -70,6 +79,20 @@ namespace EmployeeTracker
             ProjectForm projectForm = new ProjectForm(_dataStore.Projects);
             projectForm.SaveComplete += saved_Completed;
             projectForm.Show();
+        }
+
+        private void lstEmployees_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (_loading == false)
+            {
+                //int value = (listBox1.SelectedItem as SomeData).Value;
+                ListBox empListBox = sender as ListBox;
+                Employee selectedEmployee = empListBox.SelectedItem as Employee;
+
+                EmployeeForm employeeForm = new EmployeeForm(_dataStore.Employees, selectedEmployee.Id);
+                employeeForm.SaveComplete += saved_Completed;
+                employeeForm.Show();
+            }
         }
     }
 }

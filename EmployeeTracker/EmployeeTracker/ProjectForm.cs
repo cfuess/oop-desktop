@@ -24,12 +24,14 @@ namespace EmployeeTracker
         {
             InitializeComponent();
             _projects = projects;
+            txtId.Text = GetNextId().ToString();
             ShowResults += results_ShowResults;
             ShowResults("");
         }
 
         private void btnSave_Click(object sender, EventArgs e)
         {
+            _project.Id = int.Parse(txtId.Text);
             _project.Name = txtName.Text;
             _project.Description = txtDescription.Text;
             _project.StartDate = DateTime.Parse(dtStartDate.Text);
@@ -77,5 +79,19 @@ namespace EmployeeTracker
             _project.Technologies.Add(tech);
             loadTechnologies();
         }
+
+        public int GetNextId()
+        {
+            if (!_projects.Any())
+            {
+                return 0;
+            }
+            else
+            {
+                return _projects.Max(p => p.Id) + 1;
+            }
+        }
+
+
     }
 }

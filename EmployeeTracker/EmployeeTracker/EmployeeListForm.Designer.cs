@@ -66,6 +66,7 @@
             this.lstEmployees.Name = "lstEmployees";
             this.lstEmployees.Size = new System.Drawing.Size(181, 228);
             this.lstEmployees.TabIndex = 2;
+            this.lstEmployees.SelectedIndexChanged += new System.EventHandler(this.lstEmployees_SelectedIndexChanged);
             // 
             // btnAddEmployee
             // 

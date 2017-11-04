@@ -39,6 +39,8 @@
             this.dtEndDate = new System.Windows.Forms.DateTimePicker();
             this.label4 = new System.Windows.Forms.Label();
             this.lstTechnologies = new System.Windows.Forms.ListBox();
+            this.label5 = new System.Windows.Forms.Label();
+            this.txtId = new System.Windows.Forms.TextBox();
             this.SuspendLayout();
             // 
             // lblResult
@@ -63,7 +65,7 @@
             // 
             // dtStartDate
             // 
-            this.dtStartDate.Location = new System.Drawing.Point(114, 112);
+            this.dtStartDate.Location = new System.Drawing.Point(113, 141);
             this.dtStartDate.Margin = new System.Windows.Forms.Padding(2);
             this.dtStartDate.Name = "dtStartDate";
             this.dtStartDate.Size = new System.Drawing.Size(241, 22);
@@ -71,7 +73,7 @@
             // 
             // txtDescription
             // 
-            this.txtDescription.Location = new System.Drawing.Point(114, 46);
+            this.txtDescription.Location = new System.Drawing.Point(113, 75);
             this.txtDescription.Margin = new System.Windows.Forms.Padding(2);
             this.txtDescription.Multiline = true;
             this.txtDescription.Name = "txtDescription";
@@ -80,7 +82,7 @@
             // 
             // txtName
             // 
-            this.txtName.Location = new System.Drawing.Point(114, 13);
+            this.txtName.Location = new System.Drawing.Point(113, 42);
             this.txtName.Margin = new System.Windows.Forms.Padding(2);
             this.txtName.Name = "txtName";
             this.txtName.Size = new System.Drawing.Size(136, 22);
@@ -89,7 +91,7 @@
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(34, 112);
+            this.label3.Location = new System.Drawing.Point(33, 141);
             this.label3.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(72, 17);
@@ -99,7 +101,7 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(27, 46);
+            this.label2.Location = new System.Drawing.Point(26, 75);
             this.label2.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(79, 17);
@@ -109,7 +111,7 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(13, 13);
+            this.label1.Location = new System.Drawing.Point(12, 42);
             this.label1.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(93, 17);
@@ -118,7 +120,7 @@
             // 
             // dtEndDate
             // 
-            this.dtEndDate.Location = new System.Drawing.Point(114, 145);
+            this.dtEndDate.Location = new System.Drawing.Point(113, 174);
             this.dtEndDate.Margin = new System.Windows.Forms.Padding(2);
             this.dtEndDate.Name = "dtEndDate";
             this.dtEndDate.Size = new System.Drawing.Size(241, 22);
@@ -127,7 +129,7 @@
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(39, 145);
+            this.label4.Location = new System.Drawing.Point(38, 174);
             this.label4.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(67, 17);
@@ -145,11 +147,29 @@
             this.lstTechnologies.TabIndex = 18;
             this.lstTechnologies.Click += new System.EventHandler(this.lstTechnologies_Click);
             // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Location = new System.Drawing.Point(58, 11);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(19, 17);
+            this.label5.TabIndex = 19;
+            this.label5.Text = "Id";
+            // 
+            // txtId
+            // 
+            this.txtId.Location = new System.Drawing.Point(113, 11);
+            this.txtId.Name = "txtId";
+            this.txtId.Size = new System.Drawing.Size(59, 22);
+            this.txtId.TabIndex = 23;
+            // 
             // ProjectForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(588, 240);
+            this.Controls.Add(this.txtId);
+            this.Controls.Add(this.label5);
             this.Controls.Add(this.lstTechnologies);
             this.Controls.Add(this.dtEndDate);
             this.Controls.Add(this.label4);
@@ -181,5 +201,7 @@
         private System.Windows.Forms.DateTimePicker dtEndDate;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.ListBox lstTechnologies;
+        private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.TextBox txtId;
     }
 }
