@@ -14,7 +14,7 @@ namespace EmployeeTracker.Data
     {
         //declare field variables
         private XmlSerializer _serializer;
-        private string _filepath = @"C:\Temp\TrackerDb";
+        private string _filepath = @"C:\Temp\TrackerDb.xml";
 
         public FileManager()
         {

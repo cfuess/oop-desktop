@@ -70,6 +70,7 @@
             this.dtStartDate.Name = "dtStartDate";
             this.dtStartDate.Size = new System.Drawing.Size(241, 22);
             this.dtStartDate.TabIndex = 13;
+            this.dtStartDate.ValueChanged += new System.EventHandler(this.dtStartDate_ValueChanged);
             // 
             // txtDescription
             // 
@@ -79,6 +80,7 @@
             this.txtDescription.Name = "txtDescription";
             this.txtDescription.Size = new System.Drawing.Size(241, 55);
             this.txtDescription.TabIndex = 12;
+            this.txtDescription.TextChanged += new System.EventHandler(this.txtDescription_TextChanged);
             // 
             // txtName
             // 
@@ -87,6 +89,7 @@
             this.txtName.Name = "txtName";
             this.txtName.Size = new System.Drawing.Size(136, 22);
             this.txtName.TabIndex = 11;
+            this.txtName.TextChanged += new System.EventHandler(this.txtName_TextChanged);
             // 
             // label3
             // 
@@ -125,6 +128,7 @@
             this.dtEndDate.Name = "dtEndDate";
             this.dtEndDate.Size = new System.Drawing.Size(241, 22);
             this.dtEndDate.TabIndex = 17;
+            this.dtEndDate.ValueChanged += new System.EventHandler(this.dtEndDate_ValueChanged);
             // 
             // label4
             // 
@@ -146,6 +150,7 @@
             this.lstTechnologies.Size = new System.Drawing.Size(181, 164);
             this.lstTechnologies.TabIndex = 18;
             this.lstTechnologies.Click += new System.EventHandler(this.lstTechnologies_Click);
+            this.lstTechnologies.SelectedIndexChanged += new System.EventHandler(this.lstTechnologies_SelectedIndexChanged);
             // 
             // label5
             // 
@@ -158,6 +163,7 @@
             // 
             // txtId
             // 
+            this.txtId.Enabled = false;
             this.txtId.Location = new System.Drawing.Point(113, 11);
             this.txtId.Name = "txtId";
             this.txtId.Size = new System.Drawing.Size(59, 22);

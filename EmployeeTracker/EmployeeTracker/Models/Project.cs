@@ -15,5 +15,10 @@ namespace EmployeeTracker.Models
         public DateTime StartDate { get; set; }
         public DateTime? EndDate { get; set; }
         public List<string> Technologies { get; set; }
+
+        public Project()
+        {
+            Technologies = new List<string>();
+        }
     }
 }
