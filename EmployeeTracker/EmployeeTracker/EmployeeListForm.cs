@@ -15,22 +15,26 @@ namespace EmployeeTracker
     {
         //declare field variables
         private DataStore _dataStore;
+        private FileManager _fileManager;
 
         public EmployeeListForm()
         {
             InitializeComponent();
-
-            _dataStore = new DataStore();
+            _fileManager = new FileManager();
+            _dataStore = _fileManager.Load();
+            loadEmployees();
+            loadProjects();
         }
 
         private void btnAddEmployee_Click(object sender, EventArgs e)
         {
 
             EmployeeForm employeeForm = new EmployeeForm(_dataStore.Employees);
+            employeeForm.SaveComplete += saved_Completed;
             employeeForm.Show();
         }
 
-        private void btnViewEmployee_Click(object sender, EventArgs e)
+        private void loadEmployees()
         {
             // clear the list
             lstEmployees.Items.Clear();
@@ -40,6 +44,32 @@ namespace EmployeeTracker
             {
                 lstEmployees.Items.Add($"{employee.FirstName} {employee.LastName}");
             }
+        }
+
+        private void loadProjects()
+        {
+            // clear the list
+            lstProjects.Items.Clear();
+
+            // put all the employees in the list
+            foreach (var proj in _dataStore.Projects)
+            {
+                lstProjects.Items.Add(proj.Name);
+            }
+        }
+
+        public void saved_Completed(object sender, EventArgs e)
+        {
+            _fileManager.Save(_dataStore);
+            loadEmployees();
+            loadProjects();
+        }
+
+        private void btnAddProject_Click(object sender, EventArgs e)
+        {
+            ProjectForm projectForm = new ProjectForm(_dataStore.Projects);
+            projectForm.SaveComplete += saved_Completed;
+            projectForm.Show();
         }
     }
 }
