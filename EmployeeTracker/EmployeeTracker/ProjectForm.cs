@@ -15,7 +15,7 @@ namespace EmployeeTracker
     {
         private readonly List<Project> _projects;
         private Project _project = new Project();
-
+        bool _adding = true; //this is a flag used when saving
 
         delegate void SetText(string message);
         event SetText ShowResults;
@@ -30,6 +30,19 @@ namespace EmployeeTracker
             ShowResults("");
         }
 
+        public ProjectForm(List<Project> projects, int id) 
+            : this(projects)
+        {
+            _project = projects.FirstOrDefault(e => e.Id == id);
+            _adding = false;
+            txtId.Text = _project.Id.ToString();
+            txtName.Text = _project.Name;
+            txtDescription.Text = _project.Description;
+            dtStartDate.Text = _project.StartDate.ToString();
+            dtEndDate.Text = _project.EndDate.ToString();
+            loadTechnologies();
+        }
+
         private void btnSave_Click(object sender, EventArgs e)
         {
             _project.Id = int.Parse(txtId.Text);
@@ -37,7 +50,10 @@ namespace EmployeeTracker
             _project.Description = txtDescription.Text;
             _project.StartDate = DateTime.Parse(dtStartDate.Text);
             _project.EndDate = DateTime.Parse(dtEndDate.Text);
-            _projects.Add(_project);
+            if (_adding == true)
+            {
+                _projects.Add(_project);
+            }
             ShowResults("Saved");
             SaveComplete(this, EventArgs.Empty);
         }
